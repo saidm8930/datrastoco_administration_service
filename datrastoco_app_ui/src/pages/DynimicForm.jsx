@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Home() {
+function DynamicForm() {
 
   const [inputField, setInputField] = useState([]);
  
@@ -16,10 +16,21 @@ function Home() {
   }
 
   const removeInput = (index) => {
+
     const currentInputField = [...inputField]
     currentInputField.splice(index, 1)
     setInputField(currentInputField)
   }
+
+  const handleInputValueChange = (index, e) =>{
+      let values = [...inputField];
+      const updatedValue = e.target.name;
+      values[index][updatedValue] = e.target.value;
+
+      setInputField(values);
+  }
+
+  console.log(inputField);
 
 
   return (
@@ -36,14 +47,14 @@ function Home() {
                         name='title' 
                         placeholder='Title. Eg: First Name or Phone'
                         className='border-r font-serif text-gray-500 border-gray-200 outline-none px-2  text-md text-sm py-1 mr-2 ' 
-                        onChange={(e) => setInputField(inputField[index][e])}
+                        onChange={(e) => handleInputValueChange(index, e)}
                         
                       /> 
                       <input 
                         name='content' 
                         placeholder='Contents. Eg: Azrathy or +255 xxxxxx'
                         className='text-gray-500 font-serif outline-none px-2  text-md w-96 py-1 text-sm ' 
-                        onChange={(e) => setInputField(inputField[index][e])}
+                        onChange={(e) => handleInputValueChange(index, e)}
                         
                       /> 
                     </div>
@@ -69,4 +80,4 @@ function Home() {
   )
 }
 
-export default Home
+export default DynamicForm

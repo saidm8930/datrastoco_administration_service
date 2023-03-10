@@ -37,16 +37,18 @@ const handleUserRegData = (e) => {
 }
 
   return (
-    <div className="pt-4">
-        <div className="text-3xl font-bold">
-            <h2>Sign Up</h2>
-        </div>
-        <div className="mt-4">
-            <form onSubmit={(e)=>submit(e)}>
-                <Input OnChange = {(e)=>handleUserRegData(e)} Id="username" Value = {userRegData.username} Type="text" fieldName="Username" />
-                <Input OnChange = {(e)=>handleUserRegData(e)} Id="password" Value = {userRegData.password} Type="password" fieldName="Password" />
-                <Button Type="submit" title = "Sign Up" />
-            </form>
+    <div className="pt-4 flex justify-center ">
+        <div>
+            <div className="text-3xl font-bold text-center ">
+                <h2>Sign Up</h2>
+            </div>
+            <div className="mt-4">
+                <form onSubmit={(e)=>submit(e)}>
+                    <Input OnChange = {(e)=>handleUserRegData(e)} Id="username" Value = {userRegData.username} Type="text" fieldName="Username" />
+                    <Input OnChange = {(e)=>handleUserRegData(e)} Id="password" Value = {userRegData.password} Type="password" fieldName="Password" />
+                    <Button Type="submit" title = "Sign Up" />
+                </form>
+            </div>
         </div>
     </div>
   )

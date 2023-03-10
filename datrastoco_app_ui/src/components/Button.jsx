@@ -3,7 +3,7 @@ import React from 'react'
 function Button(props) {
   return (
     <div className="mt-3">
-        <button type={props.Type} className="bg-blue-600 text-white w-48 rounded-sm text-center">{props.title}</button>
+        <button type={props.Type} className="bg-cyan-500 text-white w-56  text-center p-1 ">{props.title}</button>
     </div>
   )
 }
