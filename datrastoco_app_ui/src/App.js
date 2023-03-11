@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RegisterPage from './pages/RegisterPage';
 import Home from './pages/Home';
 import DynimicForm from './pages/DynimicForm';
+import DynamicForm from './pages/DynimicForm';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route>
-            <Route  path="/" element={<DynimicForm />}/>
+            <Route  path="/" element={<DynamicForm />}/>
             <Route path="register" element={<RegisterPage />} />
             <Route path="home" element={<Home />} />
           </Route>

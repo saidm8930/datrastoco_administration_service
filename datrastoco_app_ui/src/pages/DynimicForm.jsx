@@ -30,7 +30,9 @@ function DynamicForm() {
       setInputField(values);
   }
 
-  console.log(inputField);
+  const saveData = () => {
+    console.log(inputField);
+  }
 
 
   return (
@@ -75,7 +77,7 @@ function DynamicForm() {
             ))
           }
         </div>
-
+        <button className='border' onClick={()=>saveData()}>Save</button>
     </div>
   )
 }
