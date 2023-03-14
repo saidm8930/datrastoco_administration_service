@@ -13,7 +13,7 @@ public interface UserService {
 //  CREATE USER
     User createUser(User user);
 
-//  GET ALL USERS
+//  GET LIST USERS
     List<User> getUsers();
 
 //  UPDATE USER
@@ -21,4 +21,7 @@ public interface UserService {
 
 //  DELETE USER
     User deleteUser(Integer userId, User userDetails);
+
+//  GET USER
+    User getUser(Integer userId);
 }

@@ -35,12 +35,14 @@ public class UserController {
     public String welcome(){ return "Welcome page"; }
 
 //  REGISTER
+
     @RequestMapping(value = "/v1/register", method = RequestMethod.POST)
     public AuthenticateUser register(@RequestBody AuthenticateUser authenticateUser){
         return userServiceImplementation.createUserAuthentication(authenticateUser);
     }
 
 //  AUTHENTICATION
+
     @RequestMapping(value = "/v1/login", method = RequestMethod.POST)
     public String login(@RequestBody AuthRequest authRequest){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(),authRequest.getPassword()));
@@ -51,22 +53,42 @@ public class UserController {
         }
     }
 
+
+//    CREATE USER
+
     @RequestMapping(value="/v1/users", method= RequestMethod.POST)
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public User createUser(@RequestBody User user) {
         return userServiceImplementation.createUser(user);
     }
 
+
+//    GET LIST OF USER
+
     @RequestMapping(value="/v1/users", method=RequestMethod.GET)
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public List<User> readUsers() {
         return userServiceImplementation.getUsers();
     }
+
+
+//    UPDATE USER
 
     @RequestMapping(value="/v1/users/{userId}", method=RequestMethod.PUT)
     public User updateUser(@PathVariable(value = "userId") Integer id, @RequestBody User userDetails) {
         return userServiceImplementation.updateUser(id, userDetails);
     }
+
+
+//    GET USER
+
+    @RequestMapping(value = "/v1/users/{userId}", method = RequestMethod.GET)
+    public User getUser(@PathVariable(value = "userId") Integer id){
+        return userServiceImplementation.getUser(id);
+    }
+
+
+//    DELETE USER
 
     @RequestMapping(value="/v1/deleteUser/{userId}", method=RequestMethod.PUT)
     public User deleteUser(@PathVariable(value = "userId") Integer id, @RequestBody User userDetails) {

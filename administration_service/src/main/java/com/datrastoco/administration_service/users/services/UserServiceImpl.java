@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -29,6 +30,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+
     public List<User> getUsers(){
         return userRepository.findAll();
     }
@@ -73,4 +75,10 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    public User getUser(Integer userId) {
+        Optional<User> user = userRepository.findById(userId);
+        if(user.isPresent()){
+            return user.get();
+        } throw new RuntimeException("User is not found for id:" + userId);
+    }
 }
